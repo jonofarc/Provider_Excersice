@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         helper = new DBHelper(this);
         database = helper.getWritableDatabase();
         Log.d(TAG, "onCreate: ");

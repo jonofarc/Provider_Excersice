@@ -9,6 +9,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.jonathanmaldonado.w5d3_ex01.DataBase.DBHelper;
 import com.example.jonathanmaldonado.w5d3_ex01.DataBase.FeedReaderContract;
@@ -19,12 +20,14 @@ import com.example.jonathanmaldonado.w5d3_ex01.DataBase.FeedReaderContract;
 
 public class MovieProvider extends ContentProvider {
 
+
     private static final int GENRE=100;
     private static final int GENRE_ID=101;
     private static final int MOVIE=200;
     private static final int MOVIE_ID=201;
 
     private static final UriMatcher uriMatcher= buildUriMatcher();
+    private static final String TAG = MovieProvider.class.getSimpleName() + "_TAG";
 
     private DBHelper dbHelper;
 
@@ -52,7 +55,8 @@ public class MovieProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection, @Nullable String selection, @Nullable String[] selectionArgs, @Nullable String sortOrder) {
-
+        
+        Log.d(TAG, "query: has entered Movie provider!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1 ");
         final SQLiteDatabase db = dbHelper.getWritableDatabase();
         Cursor returnCursor;
         long _id=0;

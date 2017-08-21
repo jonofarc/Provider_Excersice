@@ -2,6 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.jonathanmaldonado.w5d3_ex01">
 
+    <permission
+        android:name="com.example.jonathanmaldonado.w5d3_ex01.DataBase.READ"
+        android:label="app_read"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.example.jonathanmaldonado.w5d3_ex01.DataBase.WRITE"
+        android:label="app_write"
+        android:protectionLevel="normal" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -16,9 +24,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <provider
             android:authorities="com.example.jonathanmaldonado.w5d3_ex01.DataBase"
-            android:name=".MovieProvider"/>
+            android:name=".MovieProvider"
+            android:exported="true"
+            android:grantUriPermissions="true"
+            android:label="MovieProviderLabel"
+            android:readPermission="com.example.jonathanmaldonado.w5d3_ex01.DataBase.READ"
+            android:writePermission="com.example.jonathanmaldonado.w5d3_ex01.DataBase.WRITE"
+
+            />
+
+
+
+
     </application>
+
 
 </manifest>

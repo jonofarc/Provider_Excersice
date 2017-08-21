@@ -3,6 +3,7 @@ package com.example.jonathanmaldonado.w5d3_ex01.DataBase;
 import android.content.ContentUris;
 import android.net.Uri;
 import android.provider.BaseColumns;
+import android.util.Log;
 
 /**
  * Created by Jonathan Maldonado on 7/26/2017.
@@ -51,7 +52,9 @@ public final class FeedReaderContract {
         public static final String CONTENT_ITEM_TYPE="vnd.android.cursor.item/"+CONTENT_URI+"/"+PATH_GENRE;
 
         public static Uri buildGenreUri(long id){
-            return ContentUris.withAppendedId(CONTENT_URI,id);
+            Uri returnString = ContentUris.withAppendedId(CONTENT_URI,id);
+            return returnString;
+            //return ContentUris.withAppendedId(CONTENT_URI,id);
         }
 
 
